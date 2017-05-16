@@ -57,7 +57,7 @@ class FileStorage():
             self.root_dir.mkdir(parents=True)
         except FileExistsError:
             print('Directory exists')
-        self.max_filesize = max_filesizeг
+        self.max_filesize = max_filesize
 
     def get_file_path(self, md5hash:str):
         dir_with_file = (self.root_dir /
