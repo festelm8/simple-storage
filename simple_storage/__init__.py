@@ -57,7 +57,7 @@ class FileStorage():
             self.root_dir.mkdir(parents=True)
         except FileExistsError:
             print('Directory exists')
-        self.max_filesize = max_filesize
+        self.max_filesize = max_filesizeг
 
     def get_file_path(self, md5hash:str):
         dir_with_file = (self.root_dir /
@@ -75,7 +75,8 @@ class FileStorage():
         path_to_file = path_to_file[0]
         return str(path_to_file.absolute())
 
-    def store_file(self, filename:str, binary:bytes):
+    def store_file(self, filename:str,
+                   binary:bytes):
         if len(binary) > self.max_filesize:
             raise TooBigFileException(filename)
         filename, ext = os.path.splitext(filename)
@@ -88,3 +89,4 @@ class FileStorage():
         with path_to_file.open('wb') as target_file:
             target_file.write(binary)
             target_file.flush()
+        return md5hash
