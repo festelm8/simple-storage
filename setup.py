@@ -7,7 +7,7 @@ from setuptools import setup
 
 
 setup(
-    name='Flask',
+    name='Simple Storage',
     version='0',
     url='https://github.com/nixorn/simple-storage/',
     packages=['simple_storage'],
