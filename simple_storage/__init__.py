@@ -73,7 +73,7 @@ class FileStorage():
         if not path_to_file:
             return None
         path_to_file = path_to_file[0]
-        return str(path_to_file.absolute())
+        return str(path_to_file)
 
     def store_file(self, filename:str,
                    binary:bytes):
