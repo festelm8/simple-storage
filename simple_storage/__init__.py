@@ -87,7 +87,8 @@ class FileStorage():
         path_to_file = Path(path_to_file)
         if path_to_file.is_file():
             return md5hash
-        path_to_file.parent.mkdir(parents=True)
+        if not path_to_file.parent.is_dir():
+            path_to_file.parent.mkdir(parents=True)
         with path_to_file.open('wb') as target_file:
             target_file.write(binary)
             target_file.flush()
