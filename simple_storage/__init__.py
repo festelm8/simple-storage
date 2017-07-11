@@ -11,7 +11,6 @@ from pathlib import Path
 
 def make_path(root_dir:str, md5hash:str, ext:str):
     root = Path(root_dir)
-    print(ext)
     return (root_dir /
             md5hash[:2] /
             md5hash[2:4] /
@@ -56,7 +55,8 @@ class FileStorage():
         try:
             self.root_dir.mkdir(parents=True)
         except FileExistsError:
-            print('Directory exists')
+            #print('Directory exists')
+            pass
         self.max_filesize = max_filesize
 
     def get_file_path(self, md5hash:str):
