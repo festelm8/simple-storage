@@ -70,6 +70,7 @@ class FileStorage():
         if len(binary) > self.max_filesize:
             raise TooBigFileException()
         md5hash = hashlib.md5(binary).hexdigest()
+        ext = '.'+ext if ext else None
         path_to_file = make_path(self.root_dir,
                                  md5hash,
                                  ext)
