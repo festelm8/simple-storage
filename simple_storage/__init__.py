@@ -65,11 +65,10 @@ class FileStorage():
         path_to_file = path_to_file[0]
         return str(path_to_file)
 
-    def store_file(self, filename:str,
+    def store_file(self, ext:str,
                    binary:bytes):
         if len(binary) > self.max_filesize:
-            raise TooBigFileException(filename)
-        filename, ext = os.path.splitext(filename)
+            raise TooBigFileException()
         md5hash = hashlib.md5(binary).hexdigest()
         path_to_file = make_path(self.root_dir,
                                  md5hash,
